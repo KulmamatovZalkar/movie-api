@@ -10,9 +10,12 @@ class FilterReviewListSerializer(serializers.ListSerializer):
 
 
 class RecursiveSerializer(serializers.ModelSerializer):
-    def to_representation(self, value):
-        serializer = self.parent.parent.__class__(value, context=self.context)
+    def to_representation(self, data):
+        serializer = self.parent.parent.__class__(data, context=self.context)
         return serializer.data
+    class Meta:
+        model = Movie
+        fields = "__all__"
 
 
 class ActorListSerializer(serializers.ModelSerializer):

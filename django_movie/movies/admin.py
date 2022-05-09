@@ -26,7 +26,7 @@ class ReviewInline(admin.TabularInline):
     """Отзывы на странице фильма"""
     model = Review
     extra = 1
-    readonly_fields = ("name", "email")
+    readonly_fields = ("id", "name", "email")
 
 
 class MovieShotsInline(admin.TabularInline):
